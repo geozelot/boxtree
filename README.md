@@ -1,3 +1,5 @@
+[![GoDoc](https://godoc.org/github.com/geozelot/boxtree?status.svg)](https://godoc.org/github.com/geozelot/boxtree)
+
 # BOXTree for Go
 
 Very fast static, flat **BOX** **Tree** implementation for reverse 2D range searches (box overlap).
@@ -129,13 +131,12 @@ func main() {
   point := []float64{ 3.2, 6.3 }
 
   // parse return Slice with indices referencing inputBoxes
-  for _, matchedIndex := range tree.Including() {
+  for _, matchedIndex := range tree.Contains(point) {
 
     // using BOXTree.Box interface method to access limits
     lowerLimits, upperLimits := inputBoxes[matchedIndex].Limits()
 
-    fmt.Printf(
-      "Match at inputBoxes index %2d with range [ %v, %v ]\n", matchedIndex, lowerLimits, upperLimits)
+    fmt.Printf("Match at inputBoxes index %2d with range [ %v, %v ]\n", matchedIndex, lowerLimits, upperLimits)
 
     /*
       Match at inputBoxes index  6 with range [ [2 6], [7 7] ]
