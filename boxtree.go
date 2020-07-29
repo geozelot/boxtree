@@ -1,4 +1,4 @@
-// BOXTree provides a very fast, static, flat (augmented) 2D interval Tree for reverse 2D range searches (box overlap).
+// Package boxtree provides a very fast, static, flat (augmented) 2D interval Tree for reverse 2D range searches (box overlap).
 package boxtree
 
 import (
