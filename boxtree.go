@@ -6,12 +6,10 @@ import (
 	"math/rand"
 )
 
-
 // Box is the main interface expected by NewBOXTree(); requires Limits method to access box limits.
 type Box interface {
 	Limits() (Lower, Upper []float64)
 }
-
 
 // BOXTree is the main package object;
 // holds Slice of reference indices and the respective box limits.
@@ -34,7 +32,7 @@ func (boT *BOXTree) buildTree(bxs []Box) {
 
 		boT.lmts[3*i] = l
 		boT.lmts[3*i+1] = u
-		boT.lmts[3*i+2] = []float64{ 0 }
+		boT.lmts[3*i+2] = []float64{0}
 
 	}
 
@@ -70,7 +68,7 @@ func (boT *BOXTree) Overlaps(vals []float64) []int {
 
 			stk = append(stk, lb)
 			stk = append(stk, cn-1)
-			stk = append(stk, (ax + 1) % 2)
+			stk = append(stk, (ax+1)%2)
 
 		}
 
@@ -84,7 +82,7 @@ func (boT *BOXTree) Overlaps(vals []float64) []int {
 
 			u := boT.lmts[3*cn+1]
 
-			_ax := (ax+1)%2
+			_ax := (ax + 1) % 2
 
 			if vals[ax] <= u[ax] && vals[_ax] <= u[_ax] && l[_ax] <= vals[_ax] {
 				res = append(res, boT.idxs[cn])
@@ -126,7 +124,7 @@ func augment(lmts [][]float64, idxs []int, ax int) {
 
 	}
 
-	r := len(idxs)>>1
+	r := len(idxs) >> 1
 
 	lmts[3*r+2][0] = max
 
