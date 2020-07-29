@@ -23,7 +23,7 @@ Further scientific reading about the adapted traversal algorithm and comparisons
 
 ### `type Box`
 
-`Box{}` is the main interface expected by `NewBOXree()`; requires `Limits()` method to access box limits.
+`Box{}` is the main interface expected by `NewBOXTree()`; requires `Limits()` method to access box limits.
 
 ```go
 type Box interface {
@@ -49,12 +49,12 @@ type BOXTree struct {
 func NewBOXTree(bnds []Box) *BOXTree
 ```
 
-### `func (*BOXTree) Including`
+### `func (*BOXTree) Overlaps`
 
 `Overlaps()` is the main entry point for box searches; traverses the tree and collects boxes that overlap with the given values.
 
 ```go
-func (inT *BOXTree) Overlaps(val float64) []int
+func (inT *BOXTree) Overlaps(vals []float64) []int
 ```
 
 ## Import
@@ -131,7 +131,7 @@ func main() {
   point := []float64{ 3.2, 6.3 }
 
   // parse return Slice with indices referencing inputBoxes
-  for _, matchedIndex := range tree.Contains(point) {
+  for _, matchedIndex := range tree.Overlaps(point) {
 
     // using BOXTree.Box interface method to access limits
     lowerLimits, upperLimits := inputBoxes[matchedIndex].Limits()
@@ -148,7 +148,7 @@ func main() {
 }
 ```
 
-#### Try on [Go Playground](https://play.golang.org/p/RRDavPcgyhx).
+#### Try on [Go Playground](https://play.golang.org/p/LAQDUguAk1f).
 
 ____
 
