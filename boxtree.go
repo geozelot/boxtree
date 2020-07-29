@@ -22,12 +22,12 @@ type BOXTree struct {
 
 // buildTree is the internal tree construction function;
 // creates, sorts and augments nodes into Slices.
-func (boT *BOXTree) buildTree(bnds []Box) {
+func (boT *BOXTree) buildTree(bxs []Box) {
 
-	boT.idxs = make([]int, len(bnds))
-	boT.lmts = make([][]float64, 3*len(bnds))
+	boT.idxs = make([]int, len(bxs))
+	boT.lmts = make([][]float64, 3*len(bxs))
 
-	for i, v := range bnds {
+	for i, v := range bxs {
 
 		boT.idxs[i] = i
 		l, u := v.Limits()
@@ -100,10 +100,10 @@ func (boT *BOXTree) Overlaps(vals []float64) []int {
 
 // NewBOXTree is the main initialization function;
 // creates the tree from the given Slice of Box.
-func NewBOXTree(bnds []Box) *BOXTree {
+func NewBOXTree(bxs []Box) *BOXTree {
 
 	boT := BOXTree{}
-	boT.buildTree(bnds)
+	boT.buildTree(bxs)
 
 	return &boT
 

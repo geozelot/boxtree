@@ -46,7 +46,7 @@ type BOXTree struct {
 `NewBOXTree()` is the main initialization function; creates the tree from the given Slice of Box.
 
 ```go
-func NewBOXTree(bnds []Box) *BOXTree
+func NewBOXTree(bxs []Box) *BOXTree
 ```
 
 ### `func (*BOXTree) Overlaps`
