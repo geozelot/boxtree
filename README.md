@@ -41,7 +41,7 @@ type BOXTree struct {
 }
 ```
 
-### `func NewBOXree`
+### `func NewBOXTree`
 
 `NewBOXTree()` is the main initialization function; creates the tree from the given Slice of Box.
 
