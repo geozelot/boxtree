@@ -1,4 +1,4 @@
-[![GoDoc](https://godoc.org/github.com/geozelot/boxtree?status.svg)](https://godoc.org/github.com/geozelot/boxtree)
+[![GoDoc](https://godoc.org/github.com/geozelot/boxtree?status.svg)](https://godoc.org/github.com/geozelot/boxtree) [![Go Report Card](https://goreportcard.com/badge/github.com/geozelot/boxtree)](https://goreportcard.com/report/github.com/geozelot/boxtree)
 
 # BOXTree for Go
 
