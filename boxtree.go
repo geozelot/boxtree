@@ -64,11 +64,13 @@ func (boT *BOXTree) Overlaps(vals []float64) []int {
 		cn := int(math.Ceil(float64(lb+rb) / 2.0))
 		nm := boT.lmts[3*cn+2][0]
 
+		_ax := (ax + 1) % 2
+
 		if vals[ax] <= nm {
 
 			stk = append(stk, lb)
 			stk = append(stk, cn-1)
-			stk = append(stk, (ax+1)%2)
+			stk = append(stk, _ax)
 
 		}
 
@@ -78,11 +80,9 @@ func (boT *BOXTree) Overlaps(vals []float64) []int {
 
 			stk = append(stk, cn+1)
 			stk = append(stk, rb)
-			stk = append(stk, (ax+1)%2)
+			stk = append(stk, _ax)
 
 			u := boT.lmts[3*cn+1]
-
-			_ax := (ax + 1) % 2
 
 			if vals[ax] <= u[ax] && vals[_ax] <= u[_ax] && l[_ax] <= vals[_ax] {
 				res = append(res, boT.idxs[cn])
