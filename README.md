@@ -114,13 +114,13 @@ func main() {
   // create example boxes
   inputBoxes := []boxtree.Box{
 
-    &SimpleBox{ 4.0, 6.0, 8.0, 10.0 },
-    &SimpleBox{ 5.0, 5.0, 11.0, 9.0 },
-    &SimpleBox{ 1.0, 4.0, 4.0, 7.0 },     // match
-    &SimpleBox{ 2.0, 3.0, 3.0, 4.0 },
-    &SimpleBox{ 4.0, 6.0, 8.0, 10.0 },
-    &SimpleBox{ 6.0, 3.0, 8.0, 8.0 },
-    &SimpleBox{ 2.0, 6.0, 7.0, 7.0 },     // match
+    &SimpleBox{ MinX: 4.0, MinY: 6.0, MaxX: 8.0,  MaxY: 10.0 },
+    &SimpleBox{ MinX: 5.0, MinY: 5.0, MaxX: 11.0, MaxY: 9.0  },
+    &SimpleBox{ MinX: 1.0, MinY: 4.0, MaxX: 4.0,  MaxY: 7.0  },     // match
+    &SimpleBox{ MinX: 2.0, MinY: 3.0, MaxX: 3.0,  MaxY: 4.0  },
+    &SimpleBox{ MinX: 4.0, MinY: 6.0, MaxX: 8.0,  MaxY: 10.0 },
+    &SimpleBox{ MinX: 6.0, MinY: 3.0, MaxX: 8.0,  MaxY: 8.0  },
+    &SimpleBox{ MinX: 2.0, MinY: 6.0, MaxX: 7.0,  MaxY: 7.0  },     // match
 
   }
 
@@ -136,11 +136,11 @@ func main() {
     // using BOXTree.Box interface method to access limits
     lowerLimits, upperLimits := inputBoxes[matchedIndex].Limits()
 
-    fmt.Printf("Match at inputBoxes index %2d with range [ %v, %v ]\n", matchedIndex, lowerLimits, upperLimits)
+    fmt.Printf("Match at inputBoxes index %2d with 2D range [ %v, %v ]\n", matchedIndex, lowerLimits, upperLimits)
 
     /*
-      Match at inputBoxes index  6 with range [ [2 6], [7 7] ]
-      Match at inputBoxes index  2 with range [ [1 4], [4 7] ]
+      Match at inputBoxes index  6 with 2D range [ [2 6], [7 7] ]
+      Match at inputBoxes index  2 with 2D range [ [1 4], [4 7] ]
     */
 
   }
@@ -148,7 +148,7 @@ func main() {
 }
 ```
 
-#### Try on [Go Playground](https://play.golang.org/p/LAQDUguAk1f).
+#### Try on [Go Playground](https://play.golang.org/p/xeVFUX1m5vS).
 
 ____
 
